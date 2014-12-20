@@ -24,5 +24,12 @@ class {{name}}Repository extends AbstractRepository
         $this->request = $request;
         $this->config = $config;
         $this->model = ${{smallname}};
+
+        $this->rules = [
+            /*'int'        => '',
+            'intornull'  => '',
+            'trim'       => '',
+            'trimornull' => '',*/
+        ];
     }
 }
