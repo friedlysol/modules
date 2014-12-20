@@ -1,0 +1,28 @@
+<?php namespace App\Modules\{{name}}\Repositories;
+
+use App\Core\AbstractRepository;
+use App\Modules\{{name}}\Models\{{name}};
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Config\Repository as Config;
+
+/**
+ * {{name}} repository class
+ */
+class {{name}}Repository extends AbstractRepository
+{
+    protected $searchable = [];
+
+    /**
+     * Repository constructor
+     *
+     * @param \Illuminate\Http\Request                $request
+     * @param \Illuminate\Contracts\Config\Repository $config
+     * @param {{name}} ${{smallname}}
+     */
+    public function __construct(Request $request, Config $config, {{name}} ${{smallname}})
+    {
+        $this->request = $request;
+        $this->config = $config;
+        $this->model = ${{smallname}};
+    }
+}

@@ -17,13 +17,15 @@ class {{className}} extends Migration
 		];
 	}
 
-	/**
-	 * Determine if the user is authorized to make this request.
-	 *
-	 * @return bool
-	 */
-	public function authorize()
-	{
-		return false;
-	}
+    /**
+     * Get the input that should be fed to the validator.
+     *
+     * @return array
+     */
+    protected function formatInput()
+    {
+        $data = $this->all();
+
+        return $data;
+    }
 }

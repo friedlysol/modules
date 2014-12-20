@@ -68,6 +68,7 @@ class ModulesServiceProvider extends ServiceProvider
 		$this->registerEnableCommand();
 		$this->registerDisableCommand();
 		$this->registerMakeMigrationCommand();
+		$this->registerMakeOldMigrationCommand();
 		$this->registerMakeRequestCommand();
 		$this->registerMigrateCommand();
 		$this->registerMigrateRefreshCommand();
@@ -81,6 +82,7 @@ class ModulesServiceProvider extends ServiceProvider
 			'modules.enable',
 			'modules.disable',
 			'modules.makeMigration',
+			'modules.makeOldMigration',
 			'modules.makeRequest',
 			'modules.migrate',
 			'modules.migrateRefresh',
@@ -140,6 +142,20 @@ class ModulesServiceProvider extends ServiceProvider
 			$handler = new Handlers\ModuleMakeMigrationHandler($app['modules'], $app['files']);
 
 			return new Console\ModuleMakeMigrationCommand($handler);
+		});
+	}
+
+	/**
+	 * Register the "module:make-old-migration" console command.
+	 *
+	 * @return Console\ModuleMakeMigrationCommand
+	 */
+	protected function registerMakeOldMigrationCommand()
+	{
+		$this->app->bindShared('modules.makeOldMigration', function($app) {
+			$handler = new Handlers\ModuleMakeOldMigrationHandler($app['modules'], $app['files']);
+
+			return new Console\ModuleMakeOldMigrationCommand($handler);
 		});
 	}
 

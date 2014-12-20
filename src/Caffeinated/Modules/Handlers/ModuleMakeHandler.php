@@ -25,9 +25,8 @@ class ModuleMakeHandler
 		'Http/Middleware/',
 		'Http/Requests/',
 		'Providers/',
-		'Resources/',
-		'Resources/Lang/',
-		'Resources/Views/',
+		'Models/',
+		'Repositories/',
 	];
 
 	/**
@@ -40,7 +39,10 @@ class ModuleMakeHandler
 		'Http/routes.php',
 		'Providers/{{name}}ServiceProvider.php',
 		'Providers/RouteServiceProvider.php',
-		'module.json'
+		'module.json',
+		'Models/{{name}}.php',
+		'Repositories/{{name}}Repository.php',
+		'Http/Controllers/{{name}}Controller.php',
 	];
 
 	/**
@@ -53,7 +55,10 @@ class ModuleMakeHandler
 		'routes.stub',
 		'moduleserviceprovider.stub',
 		'routeserviceprovider.stub',
-		'module.stub'
+		'module.stub',
+		'model.stub',
+		'repository.stub',
+		'controller.stub',
 	];
 
 	/**
