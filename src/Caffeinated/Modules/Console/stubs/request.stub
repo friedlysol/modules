@@ -1,9 +1,8 @@
-<?php
-namespace {{namespace}}{{moduleName}}\Http\Requests;
+<?php namespace {{namespace}}{{moduleName}}\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class {{className}} extends Migration
+class {{className}} extends Request
 {
 	/**
 	 * Get the validation rules that apply to the request.
