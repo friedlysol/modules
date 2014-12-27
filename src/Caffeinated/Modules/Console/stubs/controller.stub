@@ -60,7 +60,6 @@ class {{name}}Controller extends Controller
         // @todo validation if needed
 
         $model = $this->{{smallname}}Repository->create($request->all());
-
         return response()->json($model, 201);
     }
 
@@ -74,9 +73,7 @@ class {{name}}Controller extends Controller
     public function show($id)
     {
         $this->checkPermissions(['{{smallname}}.show']);
-
         $id = (int) $id;
-
         return response()->json($this->{{smallname}}Repository->find($id));
     }
 
@@ -112,11 +109,7 @@ class {{name}}Controller extends Controller
     public function destroy($id)
     {
         $this->checkPermissions(['{{smallname}}.destroy']);
-
         $id = (int) $id;
-
-        // @todo validation if needed - (for example has sub ids ?)
-
         $this->{{smallname}}Repository->destroy($id);
     }
 }
