@@ -76,6 +76,7 @@ class ModulesServiceProvider extends ServiceProvider
 		$this->registerMigrateRollbackCommand();
 		$this->registerSeedCommand();
 		$this->registerListCommand();
+        $this->registerMakeManualMigrationCommand();
 
 		$this->commands([
 			'modules.make',
@@ -89,7 +90,8 @@ class ModulesServiceProvider extends ServiceProvider
 			'modules.migrateReset',
 			'modules.migrateRollback',
 			'modules.seed',
-			'modules.list'
+			'modules.list',
+            'modules.makeManualMigration',
 		]);
 	}
 
@@ -158,6 +160,20 @@ class ModulesServiceProvider extends ServiceProvider
 			return new Console\ModuleMakeOldMigrationCommand($handler);
 		});
 	}
+
+    /**
+     * Register the "module:make-manual-migration" console command.
+     *
+     * @return Console\ModuleMakeMigrationCommand
+     */
+    protected function registerMakeManualMigrationCommand()
+    {
+        $this->app->bindShared('modules.makeManualMigration', function($app) {
+            $handler = new Handlers\ModuleMakeManualMigrationHandler($app['modules'], $app['files']);
+
+            return new Console\ModuleMakeManualMigrationCommand($handler);
+        });
+    }
 
 	/**
 	 * Register the "module:make-request" console command.
