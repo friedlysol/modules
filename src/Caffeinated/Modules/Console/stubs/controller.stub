@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Modules\{{name}}\Repositories\{{name}}Repository;
 use Illuminate\Config\Repository as Config;
-use use App\Modules\{{name}}\\Http\Requests\{{name}}Request;
+use App\Modules\{{name}}\Http\Requests\{{name}}Request;
 
 /**
  * Class {{name}}Controller
@@ -33,6 +33,8 @@ class {{name}}Controller extends Controller
 
     /**
      * Return list of {{name}}
+     *
+     * @param Config $config
      *
      * @return Response
      */
@@ -107,7 +109,7 @@ class {{name}}Controller extends Controller
     /**
      * Update the specified {{name}} in storage.
      *
-     *  @param  @param {{name}}Request $request
+     * @param {{name}}Request $request
      * @param  int $id
      *
      * @return Response
