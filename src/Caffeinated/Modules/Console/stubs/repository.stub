@@ -3,7 +3,7 @@
 use App\Core\AbstractRepository;
 use App\Modules\{{name}}\Models\{{name}};
 use Illuminate\Container\Container;
-
+use App\Modules\{{name}}\Http\Requests\{{name}}Request;
 
 /**
  * {{name}} repository class
@@ -24,5 +24,17 @@ class {{name}}Repository extends AbstractRepository
     public function __construct(Container $app, {{name}} ${{smallname}})
     {
         parent::__construct($app,  ${{smallname}});
+    }
+
+    /**
+     * Get front-end validation rules
+     *
+     * @return array
+     */
+    public function getRequestRules()
+    {
+        $req = new {{name}}Request();
+
+        return $req->getFrontendRules();
     }
 }

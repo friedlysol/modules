@@ -22,7 +22,6 @@ class ModuleMakeHandler
 		'Database/Seeds',
 		'Http/',
 		'Http/Controllers/',
-		'Http/Middleware/',
 		'Http/Requests/',
 		'Providers/',
 		'Models/',
@@ -43,6 +42,7 @@ class ModuleMakeHandler
 		'Models/{{name}}.php',
 		'Repositories/{{name}}Repository.php',
 		'Http/Controllers/{{name}}Controller.php',
+        'Http//Requests/{{name}}Request.php'
 	];
 
 	/**
@@ -59,6 +59,7 @@ class ModuleMakeHandler
 		'model.stub',
 		'repository.stub',
 		'controller.stub',
+        'request.stub',
 	];
 
 	/**
