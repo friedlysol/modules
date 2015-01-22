@@ -220,8 +220,8 @@ class ModuleMakeHandler
 	protected function formatContent($content)
 	{
 		return str_replace(
-			['{{slug}}', '{{name}}', '{{namespace}}', '{{smallname}}'],
-			[$this->slug, $this->name, $this->modules->getNamespace(), strtolower($this->name)],
+			['{{slug}}', '{{name}}', '{{namespace}}', '{{smallname}}', '{{className}}', '{{moduleName}}'],
+			[$this->slug, $this->name, $this->modules->getNamespace(), strtolower($this->name), $this->name.'Request', $this->name],
 			$content
 		);
 	}
