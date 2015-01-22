@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Modules\{{name}}\Repositories\{{name}}Repository;
 use Illuminate\Config\Repository as Config;
-use Illuminate\Http\Request;
+use use App\Modules\{{name}}\\Http\Requests\{{name}}Request;
 
 /**
  * Class {{name}}Controller
@@ -77,15 +77,15 @@ class {{name}}Controller extends Controller
     /**
      * Store a newly created {{name}} in storage.
      *
+     * @param {{name}}Request $request
+     *
      * @return Response
      */
-    public function store(Request $request)
+    public function store({{name}}Request $request)
     {
         $this->checkPermissions(['{{smallname}}.store']);
-
-        // @todo validation if needed
-
         $model = $this->{{smallname}}Repository->create($request->all());
+
         return response()->json(['item' => $model], 201);
     }
 
@@ -96,7 +96,7 @@ class {{name}}Controller extends Controller
      *
      * @return Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         $this->checkPermissions(['{{smallname}}.update']);
         $id = (int) $id;
@@ -107,16 +107,15 @@ class {{name}}Controller extends Controller
     /**
      * Update the specified {{name}} in storage.
      *
+     *  @param  @param {{name}}Request $request
      * @param  int $id
      *
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update({{name}}Request $request, $id)
     {
         $this->checkPermissions(['{{smallname}}.update']);
         $id = (int) $id;
-
-        // @todo validation if needed
 
         $record = $this->{{smallname}}Repository->updateWithIdAndInput($id,
             $request->all());
@@ -134,7 +133,10 @@ class {{name}}Controller extends Controller
     public function destroy($id)
     {
         $this->checkPermissions(['{{smallname}}.destroy']);
-        $id = (int) $id;
-        $this->{{smallname}}Repository->destroy($id);
+        App::abort(404);
+        exit;
+
+        /* $id = (int) $id;
+        $this->{{smallname}}Repository->destroy($id); */
     }
 }
