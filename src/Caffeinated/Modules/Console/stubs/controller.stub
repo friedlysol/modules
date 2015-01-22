@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Modules\{{name}}\Repositories\{{name}}Repository;
 use Illuminate\Config\Repository as Config;
 use App\Modules\{{name}}\Http\Requests\{{name}}Request;
+use App;
 
 /**
  * Class {{name}}Controller
