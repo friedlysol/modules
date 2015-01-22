@@ -11,10 +11,29 @@ class {{className}} extends Request
 	 */
 	public function rules()
 	{
-		return [
-			//
-		];
+	    $rules = $this->getRules();
+
+		return $rules;
 	}
+
+    /**
+     * Get basic validation rules
+     *
+     * @return array
+     */
+    public function getRules()
+    {
+        return [
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getFormatterRules() {
+        return [
+        ];
+    }
 
     /**
      * Get the input that should be fed to the validator.

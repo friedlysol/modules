@@ -2,34 +2,27 @@
 
 use App\Core\AbstractRepository;
 use App\Modules\{{name}}\Models\{{name}};
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Container\Container;
+
 
 /**
  * {{name}} repository class
  */
 class {{name}}Repository extends AbstractRepository
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $searchable = [];
 
     /**
      * Repository constructor
      *
-     * @param \Illuminate\Http\Request                $request
-     * @param \Illuminate\Contracts\Config\Repository $config
+     * @param Container $app
      * @param {{name}} ${{smallname}}
      */
-    public function __construct(Request $request, Config $config, {{name}} ${{smallname}})
+    public function __construct(Container $app, {{name}} ${{smallname}})
     {
-        $this->request = $request;
-        $this->config = $config;
-        $this->model = ${{smallname}};
-
-        $this->rules = [
-            /*'int'        => '',
-            'intornull'  => '',
-            'trim'       => '',
-            'trimornull' => '',*/
-        ];
+        parent::__construct($app,  ${{smallname}});
     }
 }
