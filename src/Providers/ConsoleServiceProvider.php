@@ -116,9 +116,9 @@ class ConsoleServiceProvider extends ServiceProvider
     protected function registerMakeManualMigrationCommand()
     {
         $this->app->bindShared('modules.makeManualMigration', function($app) {
-            $handler = new \Caffeinated\Modules\Handlers\ModuleMakeManualMigrationHandler($app['modules'], $app['files']);
+            $handler = new \Caffeinated\Modules\Handlers\Console\Commands\ModuleMakeManualMigrationHandler($app['modules'], $app['files']);
 
-            return new \Caffeinated\Modules\Console\ModuleMakeManualMigrationCommand($handler);
+            return new \Caffeinated\Modules\Console\Commands\ModuleMakeManualMigrationCommand($handler);
         });
     }
 
