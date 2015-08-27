@@ -1,40 +1,37 @@
 Caffeinated Modules
 ===================
-[![Build Status](https://travis-ci.org/caffeinated/modules.svg?branch=master)](https://travis-ci.org/caffeinated/modules)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/caffeinated/modules/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/caffeinated/modules/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/caffeinated/modules/v/stable.svg)](https://packagist.org/packages/caffeinated/modules)
-[![Total Downloads](https://poser.pugx.org/caffeinated/modules/downloads.svg)](https://packagist.org/packages/caffeinated/modules)
-[![Latest Unstable Version](https://poser.pugx.org/caffeinated/modules/v/unstable.svg)](https://packagist.org/packages/caffeinated/modules)
-[![License](https://poser.pugx.org/caffeinated/modules/license.svg)](https://packagist.org/packages/caffeinated/modules)
+[![Laravel 5.1](https://img.shields.io/badge/Laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
+[![Source](http://img.shields.io/badge/source-caffeinated/modules-blue.svg?style=flat-square)](https://github.com/caffeinated/modules)
+[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
-All features for the initial release as outlined within the [roadmap](https://github.com/caffeinated/modules/wiki/Roadmap#10-beta) have been completed. I'm simply waiting until Laravel 5.0 is officially released to tag this as stable v1.0. In the meantime I will continue to clean up the code that currently stands.
+Caffeinated Modules is a simple package to allow the means to separate your Laravel 5 application out into modules. Each module is completely self-contained allowing the ability to simply drop a module in for use.
 
-You can read more about the development and updates behind the package [here](http://caffeinated.ninja/category/packages/modules/).
+The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high level of interoperability between shared PHP code. At the moment the package is not unit tested, but is planned to be covered later down the road.
 
----
+Documentation
+-------------
+You will find user friendly and updated documentation in the wiki here: [Caffeinated Modules Wiki](https://github.com/caffeinated/modules/wiki)
 
-To learn more about the usage of this package, please refer to the full set of [documentation](https://github.com/caffeinated/modules/wiki). You will find quick installation instructions below.
-
----
-
-Installation
-------------
-Begin by installing the package through Composer. The best way to do this is through your terminal via Composer itself:
+Quick Installation
+------------------
+Begin by installing the package through Composer.
 
 ```
-composer require caffeinated/modules
+composer require caffeinated/modules=~2.0
 ```
 
 Once this operation is complete, simply add both the service provider and facade classes to your project's `config/app.php` file:
 
 #### Service Provider
-```
-'Caffeinated\Modules\ModulesServiceProvider'
+
+```php
+Caffeinated\Modules\ModulesServiceProvider::class,
 ```
 
 #### Facade
-```
-'Module' => 'Caffeinated\Modules\Facades\Module'
+
+```php
+'Module' => Caffeinated\Modules\Facades\Module::class,
 ```
 
 And that's it! With your coffee in reach, start building out some awesome modules!
